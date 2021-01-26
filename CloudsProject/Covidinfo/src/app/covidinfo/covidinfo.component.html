@@ -1,0 +1,37 @@
+<div> 
+    <button class ="button_signout" (click)="covidinfoService.signOut()">Sign out</button>
+</div>
+<div>
+    <h1 style="text-align: center;">Check latest info about covid19</h1>
+</div>
+
+
+<div class="row">
+    <button class="button_world col-sm-6" (click)="assignComponent('world_data')">World Data About Covid19</button>
+    <button class="button_countries col-sm-6" (click)="assignComponent('countries_data')">Countries Data About Covid19</button>
+</div>
+
+<div>
+    <ng-container *ngComponentOutlet="dataComponent"></ng-container>
+</div>
+
+
+
+
+
+
+<style>
+    .button_world{
+        margin-top: 20px;
+        background-color: darkseagreen;
+    }
+
+    .button_countries{
+        margin-top: 20px;
+        background-color:lightskyblue;
+    }
+
+    .button_signout{
+        background-color: rgb(230, 103, 103);
+    }
+</style>

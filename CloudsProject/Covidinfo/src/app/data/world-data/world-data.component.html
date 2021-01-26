@@ -1,0 +1,140 @@
+<div *ngIf="check">
+    <div class="my-6 table">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text">
+                    <th>New Confirmed</th>
+                    <th>Total Confirmed</th>
+                    <th>Active Cases</th>
+                    <th>New Dead</th>
+                    <th>Total Dead</th>
+                    <th>Mortality Rate</th>
+                    <th>New Recovered</th>
+                    <th>Total Recovered</th>
+                    <th>Recovery Rate</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td>{{ covidData_world.NewConfirmed }}</td>
+                <td>{{ covidData_world.TotalConfirmed }}</td>
+                <td>{{ covidData_world.ActiveCases }}</td>
+                <td>{{ covidData_world.NewDeaths }}</td>
+                <td>{{ covidData_world.TotalDeaths }}</td>
+                <td>{{ covidData_world.MortalityRate }}</td>
+                <td>{{ covidData_world.NewRecovered }}</td>
+                <td>{{ covidData_world.TotalRecovered }}</td>
+                <td>{{ covidData_world.RecoveryRate }}</td>
+                <td>{{ covidData_world.Date }}</td>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h4 style="text-align: center;margin-top: 50px;">Covid19 latest News</h4>
+        <div id="news"></div>
+    </div>
+
+
+
+    <div style="text-align: center;margin-top: 50px;">
+        <h4>Summary of Covid19 cases in the World </h4>
+    </div>
+    <div class="chart-wrapper" style="margin-top: 50px;">
+        <canvas baseChart 
+        [data]="pieChartData" 
+        [labels]="pieChartLabels" 
+        [chartType]="pieChartType"
+        [options]="pieChartOptions"
+        [plugins]="pieChartPlugins"
+        [legend]="pieChartLegend">
+      </canvas>
+    </div>
+
+
+    <div style="text-align: center;margin-top: 50px;">
+        <h4>Summary of Covid19 cases in the World over the last week</h4>
+    </div>
+    <div class="chart-wrapper" style="margin-top: 50px;">
+        <canvas baseChart 
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
+
+
+    <div style="text-align: center;margin-top: 50px;">
+        <h4>Summary of Covid19 cases in the World over the last month</h4>
+    </div>
+    <div class="chart-wrapper" style="margin-top: 50px;">
+        <canvas baseChart 
+            [datasets]="lineChartData" 
+            [labels]="lineChartLabels" 
+            [options]="lineChartOptions"
+            [colors]="lineChartColors" 
+            [legend]="lineChartLegend" 
+            [chartType]="lineChartType" 
+            [plugins]="lineChartPlugins">
+        </canvas>
+    </div>
+
+
+    <article class="addNews">
+        <h4 style="text-align: center;margin-top: 10px;">Add a news about covid19 in the world : </h4>
+        <div class="container">
+            <input class="inputNews" id="input_news">
+            <button class="buttonAdd" (click)="addNews()">Add</button>
+        </div>
+    </article>
+
+</div>
+
+<style>
+    .table{
+        margin-top: 20px;
+    }
+
+    .text{
+        font-size: small;
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+
+    .addNews{
+        margin-top: 100px;
+        border : 2px solid black;
+        background-color: lightskyblue;
+    }
+
+    .articleNews{
+        margin-top: 100px;
+        border : 2px solid black;
+        background-color: lightskyblue;
+        width : auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .buttonAdd{
+        background-color: brown;;
+        height: auto;
+        width:auto;
+    }
+
+    .inputNews{
+        margin-left:10px;
+        margin-top:10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        width:75%;
+        height: 100px
+    }
+</style>
